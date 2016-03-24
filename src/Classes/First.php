@@ -13,6 +13,7 @@ class First
 {
     public function index(){
         echo "111111111111";
+        return "Hurra";
     }
 
 }
