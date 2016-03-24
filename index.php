@@ -34,6 +34,7 @@ $app->register(new SerializerServiceProvider());
 
 
 $app->get('first', 'App\Classes\First::index');
+$app->get('/', 'App\Classes\First::index');
 
 
 
