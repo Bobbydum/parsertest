@@ -6,7 +6,7 @@
  * Time: 22:24
  */
 
-namespace Classes;
+namespace App\Classes;
 
 
 class First
