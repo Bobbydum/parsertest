@@ -7,8 +7,6 @@
     "symfony/security": "^2.8"
   },
   "autoload": {
-    "psr-0": {
-      "ParserApp": "src/"
-    }
+    "psr-0": { "App": "src" }
   }
 }

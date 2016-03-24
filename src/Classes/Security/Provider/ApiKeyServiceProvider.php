@@ -1,8 +1,8 @@
 <?php
 
-namespace Rest\Classes\Security\Provider;
+namespace App\Classes\Security\Provider;
 
-use Rest\Classes\Security\ApiKeyAuthenticator;
+use App\Classes\Security\ApiKeyAuthenticator;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Symfony\Component\Security\Core\Authentication\Provider\SimpleAuthenticationProvider;

@@ -6,7 +6,7 @@
  * Time: 11:40 AM
  */
 
-namespace Classes\Security\Provider;
+namespace App\Classes\Security\Provider;
 
 
 use Silex\Application;

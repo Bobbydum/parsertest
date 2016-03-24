@@ -3,8 +3,8 @@ require('vendor/autoload.php');
 
 use Silex\Application;
 use Silex\Provider\SerializerServiceProvider;
-use Classes\Security\Provider\ApiKeyUserServiceProvider;
-use Classes\Security\Provider\ApiKeyServiceProvider;
+use App\Classes\Security\Provider\ApiKeyUserServiceProvider;
+use App\Classes\Security\Provider\ApiKeyServiceProvider;
 use Symfony\Component\HttpFoundation\RequestMatcher;
 use Silex\Provider\SecurityServiceProvider;
 
@@ -33,7 +33,7 @@ $app->register(new SecurityServiceProvider(), array(
 $app->register(new SerializerServiceProvider());
 
 
-$app->get('agency', '\ParserApp\Classes\Agency::index');
+$app->get('first', 'App\Classes\First::index');
 
 
 

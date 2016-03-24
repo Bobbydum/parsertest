@@ -6,10 +6,10 @@
  * Time: 11:07 AM
  */
 
-namespace Classes\Security;
+namespace App\Classes\Security;
 
 
-use Classes\Security\Provider\ApiKeyUserProvider;
+use App\Classes\Security\Provider\ApiKeyUserProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;

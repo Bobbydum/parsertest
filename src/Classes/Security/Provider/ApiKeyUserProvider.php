@@ -6,7 +6,7 @@
  * Time: 11:08 AM
  */
 
-namespace Rest\Classes\Security\Provider;
+namespace App\Classes\Security\Provider;
 
 
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
