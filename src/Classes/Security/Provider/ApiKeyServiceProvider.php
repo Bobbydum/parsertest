@@ -2,12 +2,13 @@
 
 namespace App\Classes\Security\Provider;
 
-use App\Classes\Security\ApiKeyAuthenticator;
-use Symfony\Component\Security\Core\Authentication\Provider\SimpleAuthenticationProvider;
-use Symfony\Component\Security\Http\Firewall\SimplePreAuthenticationListener;
 use Silex\{
     Application, ServiceProviderInterface
 };
+use App\Classes\Security\ApiKeyAuthenticator;
+use Symfony\Component\Security\Core\Authentication\Provider\SimpleAuthenticationProvider;
+use Symfony\Component\Security\Http\Firewall\SimplePreAuthenticationListener;
+
 
 /**
  * Created by PhpStorm.
