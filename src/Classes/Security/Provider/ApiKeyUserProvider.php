@@ -9,11 +9,13 @@
 namespace App\Classes\Security\Provider;
 
 
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Core\User\User;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Core\Exception\{
+    UnsupportedUserException, UsernameNotFoundException
+};
+use Symfony\Component\Security\Core\User\{
+    User, UserInterface, UserProviderInterface
+};
+
 
 class ApiKeyUserProvider implements UserProviderInterface
 {
@@ -37,7 +39,7 @@ class ApiKeyUserProvider implements UserProviderInterface
      */
     public function loadUserByUsername($username)
     {
-        if(!isset($this->users[$username])) {
+        if (!isset($this->users[$username])) {
             throw new UsernameNotFoundException(
                 sprintf('User %s not found', $username)
             );
@@ -85,8 +87,9 @@ class ApiKeyUserProvider implements UserProviderInterface
      * @param string $apiKey
      * @return string
      */
-    public function getUserNameForApiKey($apiKey) {
-        if(!$userName = array_search($apiKey, $this->users)) {
+    public function getUserNameForApiKey($apiKey)
+    {
+        if (!$userName = array_search($apiKey, $this->users)) {
             throw new UsernameNotFoundException(
                 sprintf('Username for apikey %s not found', $apiKey)
             );
