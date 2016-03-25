@@ -2,13 +2,12 @@
 
 namespace App\Classes\Security\Provider;
 
-use Silex\{
-    Application, ServiceProviderInterface
-};
 use App\Classes\Security\ApiKeyAuthenticator;
 use Symfony\Component\Security\Core\Authentication\Provider\SimpleAuthenticationProvider;
 use Symfony\Component\Security\Http\Firewall\SimplePreAuthenticationListener;
-
+use Silex\{
+    Application, ServiceProviderInterface
+};
 
 /**
  * Created by PhpStorm.
@@ -65,5 +64,18 @@ class ApiKeyServiceProvider implements ServiceProviderInterface
 
         return true;
     }
+
+    /**
+     * Bootstraps the application.
+     *
+     * This method is called after all services are registered
+     * and should be used for "dynamic" configuration (whenever
+     * a service must be requested).
+     */
+    public function boot(Application $app)
+    {
+        // TODO: Implement boot() method.
+    }
+
 
 }
