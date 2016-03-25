@@ -31,12 +31,13 @@ $app->register(new SecurityServiceProvider(), array(
         )
     ),
     'security.access_rules' => array(
-        array(new RequestMatcher('^/vf/ru/rest'), array('ROLE_USER'))
+        array(new RequestMatcher('^/test/auth'), array('ROLE_USER'))
     )
 ));
 
 
 $app->get('/', 'App\Classes\First::index');
 $app->get('/first', 'App\Classes\First::index');
+$app->get('/test/auth', 'App\Classes\Test::index');
 
 $app->run(); // Запуск приложения
