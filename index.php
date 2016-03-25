@@ -1,17 +1,16 @@
 <?php
 require('vendor/autoload.php');
 
-use App\Classes\Security\Provider\{
-    ApiKeyUserServiceProvider,
-    ApiKeyServiceProvider
-};
 use Silex\Application;
+use Symfony\Component\HttpFoundation\RequestMatcher;
 use Silex\Provider\{
     SerializerServiceProvider,
     SecurityServiceProvider
 };
-
-
+use App\Classes\Security\Provider\{
+    ApiKeyUserServiceProvider,
+    ApiKeyServiceProvider
+};
 
 $app = new Application();
 $app['debug'] = true;
