@@ -26,7 +26,7 @@ $app->register(new SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'api' => array(
             'apikey' => true,
-            'pattern' => '^/vf/ru/rest',
+            'pattern' => '^/test/auth',
             'stateless' => false
         )
     ),
