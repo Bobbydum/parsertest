@@ -9,8 +9,9 @@
 namespace App\Classes\Security\Provider;
 
 
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Silex\{
+    Application, ServiceProviderInterface
+};
 
 class ApiKeyUserServiceProvider implements ServiceProviderInterface
 {
