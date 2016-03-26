@@ -5,7 +5,8 @@
     "symfony/serializer": "^2.8",
     "symfony/config": "^2.8",
     "symfony/security": "^2.8",
-    "php-amqplib/php-amqplib": "^2.6"
+    "php-amqplib/php-amqplib": "^2.6",
+    "doctrine/dbal": "~2.2"
   },
   "autoload": {
     "psr-0": { "App": "src" }
