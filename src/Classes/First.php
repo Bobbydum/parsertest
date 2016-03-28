@@ -12,6 +12,7 @@ namespace App\Classes;
 class First
 {
     public function index(){
+        echo "Andrey";
         echo phpinfo();
         return "Hurra";
     }
