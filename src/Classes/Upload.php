@@ -9,15 +9,24 @@
 namespace App\Classes;
 
 use Silex\Application;
+use Silex\Provider\{
+    FormServiceProvider, TranslationServiceProvider, ValidatorServiceProvider
+};
 use Symfony\Component\HttpFoundation\{
-    Request, Response
+    Request
 };
 
 class Upload
 {
-    public function index(Application $app)
+    public function index(Application $app, Request $request)
     {
-        $app->match('/', function (Request $request) use ($app) {
+        $app->register(new ValidatorServiceProvider());
+        $app->register(new FormServiceProvider());
+        $app->register(new TranslationServiceProvider(), array(
+            'translator.messages' => array(),
+        ));
+
+
             $form = $app['form.factory']
                 ->createBuilder('form')
                 ->add('FileUpload', 'file')
@@ -31,7 +40,7 @@ class Upload
                 if ($form->isValid()) {
                     $files = $request->files->get($form->getName());
                     /* Make sure that Upload Directory is properly configured and writable */
-                    $path = __DIR__ . '/web/upload/';
+                    $path = UPLOAD_PATH;
                     $filename = $files['FileUpload']->getClientOriginalName();
                     $files['FileUpload']->move($path, $filename);
                     $message = 'File was successfully uploaded!';
@@ -46,24 +55,6 @@ class Upload
             );
 
             return $response;
-
-        }, 'GET|POST');
-        $app->error(function (\Exception $e, $code) use ($app) {
-            $response = null;
-
-            if (!$app['debug']) {
-                switch ($code) {
-                    case 404:
-                        $message = 'The requested page could not be found.';
-                        break;
-                    default:
-                        $message = 'We are sorry, but something went terribly wrong.';
-                }
-                $response = new Response($message, $code);
-            }
-
-            return $response;
-        });
     }
 
 }

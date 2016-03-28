@@ -6,10 +6,7 @@ use App\Classes\Security\Provider\{
 };
 use Silex\Application;
 use Silex\Provider\{
-    SecurityServiceProvider, SerializerServiceProvider
-};
-use Silex\Provider\{
-    FormServiceProvider, TwigServiceProvider, ValidatorServiceProvider
+    SecurityServiceProvider, SerializerServiceProvider, TwigServiceProvider
 };
 use Symfony\Component\HttpFoundation\RequestMatcher;
 
@@ -21,8 +18,10 @@ $config = include_once 'config/config.php';
 
 $app['users'] = $config['users'];
 
-$app->register(new ValidatorServiceProvider());
-$app->register(new FormServiceProvider());
+define('UPLOAD_PATH', __DIR__ . $config['upload']);
+
+//var_dump(UPLOAD_PATH);die();
+
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => array(__DIR__ . '/views'),
     'twig.options' => array('cache' => __DIR__ . '/cache/twig'),
@@ -46,9 +45,9 @@ $app->register(new SecurityServiceProvider(), array(
 
 
 $app->get('/', 'App\Classes\First::index');
-$app->get('/first', 'App\Classes\First::index');
-$app->get('/test/auth', 'App\Classes\Test::index');
-$app->post('/file', 'App\Classes\Upload::index');
-$app->get('/file', 'App\Classes\Upload::index');
+$app->get('/first/', 'App\Classes\First::index');
+$app->get('/test/auth/', 'App\Classes\Test::index');
+$app->post('/file/', 'App\Classes\Upload::index');
+$app->get('/file/', 'App\Classes\Upload::index');
 
 $app->run(); // Запуск приложения
