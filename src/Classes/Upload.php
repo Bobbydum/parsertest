@@ -27,34 +27,34 @@ class Upload
         ));
 
 
-            $form = $app['form.factory']
-                ->createBuilder('form')
-                ->add('FileUpload', 'file')
-                ->getForm();
-            $request = $app['request'];
-            $message = 'Upload a file';
-            if ($request->isMethod('POST')) {
+        $form = $app['form.factory']
+            ->createBuilder('form')
+            ->add('FileUpload', 'file')
+            ->getForm();
+        $request = $app['request'];
+        $message = 'Upload a file';
+        if ($request->isMethod('POST')) {
 
-                $form->bind($request);
+            $form->bind($request);
 
-                if ($form->isValid()) {
-                    $files = $request->files->get($form->getName());
-                    /* Make sure that Upload Directory is properly configured and writable */
-                    $path = UPLOAD_PATH;
-                    $filename = $files['FileUpload']->getClientOriginalName();
-                    $files['FileUpload']->move($path, $filename);
-                    $message = 'File was successfully uploaded!';
-                }
+            if ($form->isValid()) {
+                $files = $request->files->get($form->getName());
+                /* Make sure that Upload Directory is properly configured and writable */
+                $path = UPLOAD_PATH;
+                $filename = $files['FileUpload']->getClientOriginalName();
+                $files['FileUpload']->move($path, $filename);
+                $message = 'File was successfully uploaded!';
             }
-            $response = $app['twig']->render(
-                'index.html.twig',
-                array(
-                    'message' => $message,
-                    'form' => $form->createView()
-                )
-            );
+        }
+        $response = $app['twig']->render(
+            'index.html.twig',
+            array(
+                'message' => $message,
+                'form' => $form->createView()
+            )
+        );
 
-            return $response;
+        return $response;
     }
 
 }
