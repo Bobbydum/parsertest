@@ -26,13 +26,22 @@ class Upload
             'translator.messages' => array(),
         ));
 
-
+        $users = [
+            1 => 'Andrey',
+            2 => 'Vladimir',
+            3 => 'Ivan'
+        ];
         $form = $app['form.factory']
             ->createBuilder('form')
             ->add('FileUpload', 'file')
+            ->add('user', 'choice', array(
+                'label' => 'Chose user',
+                'choices' => $users,
+            ))
             ->getForm();
         $request = $app['request'];
         $message = 'Upload a file';
+        $user = 'Ho user write now';
         if ($request->isMethod('POST')) {
 
             $form->bind($request);
@@ -43,12 +52,17 @@ class Upload
                 $path = UPLOAD_PATH;
                 $filename = $files['FileUpload']->getClientOriginalName();
                 $files['FileUpload']->move($path, $filename);
+
+                $data = $request->request->get('form');
+                $user = "userID is: " . $data['user'] . ' ';
+
                 $message = 'File was successfully uploaded!';
             }
         }
         $response = $app['twig']->render(
             'index.html.twig',
             array(
+                'user' => $user,
                 'message' => $message,
                 'form' => $form->createView()
             )
