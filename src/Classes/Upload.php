@@ -8,6 +8,7 @@
 
 namespace App\Classes;
 
+use App\Import\Managers\Import;
 use Silex\Application;
 use Silex\Provider\{
     FormServiceProvider, TranslationServiceProvider, ValidatorServiceProvider
@@ -20,6 +21,7 @@ class Upload
 {
     public function index(Application $app, Request $request)
     {
+        $importManager = new Import();
         $app->register(new ValidatorServiceProvider());
         $app->register(new FormServiceProvider());
         $app->register(new TranslationServiceProvider(), array(
@@ -41,24 +43,34 @@ class Upload
             ->getForm();
         $request = $app['request'];
         $message = 'Upload a file';
-        $user = 'Ho user write now';
+        $user = 'Please chose owner of file';
         if ($request->isMethod('POST')) {
 
             $form->bind($request);
 
             if ($form->isValid()) {
                 $files = $request->files->get($form->getName());
-                /* Make sure that Upload Directory is properly configured and writable */
+
                 $path = UPLOAD_PATH;
+
                 $filename = $files['FileUpload']->getClientOriginalName();
+
                 $files['FileUpload']->move($path, $filename);
 
                 $data = $request->request->get('form');
+
                 $user = "userID is: " . $data['user'] . ' ';
 
-                $message = 'File was successfully uploaded!';
+                $importManager->userId = $data['user'];
+
+                $importManager->checkFile($files['FileUpload']);
+
+                $message = $importManager->message;
+
+                $importManager->importFile();
             }
         }
+
         $response = $app['twig']->render(
             'index.html.twig',
             array(
