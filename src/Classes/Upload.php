@@ -49,7 +49,7 @@ class Upload
 
             if ($form->isValid()) {
                 $files = $request->files->get($form->getName());
-
+                /* Make sure that Upload Directory is properly configured and writable */
                 $path = UPLOAD_PATH;
 
                 $filename = $files['FileUpload']->getClientOriginalName();
