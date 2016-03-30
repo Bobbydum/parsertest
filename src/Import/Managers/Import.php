@@ -8,21 +8,56 @@ use Silex\{
 use Symfony\Component\HttpFoundation\File;
 
 
+Class Import
+{
 
-Class Import  {
+    public $importFormat;
+    public $message;
+    public $file;
+    public $userId;
+    private $documentObject   = null;
 
+    function checkFile($file)
+    {
 
-    static function checkFile($file){
+        $ext = $file->getClientOriginalExtension();
+        try {
 
-        $ext =  $file->getClientOriginalExtension();
-        switch ($ext){
-            case CONFIG['format']['xml'];
-                return 'Вы залили ХМЛ';
-                break;
-            case CONFIG['format']['csv'];
-                return 'Вы залили CSV';
-                break;
+            switch ($ext) {
+                case CONFIG['format']['xml'];
+                    $this->message[] = 'Вы залили ХМЛ';
+                    $this->importFormat = CONFIG['format']['xml'];
+                    break;
+                case CONFIG['format']['csv'];
+                    $this->message[] = 'Вы залили CSV';
+                    $this->importFormat = CONFIG['format']['csv'];
+                    break;
+            }
+
+            $this->file = $file;
+
+        } catch (\Exception $e) {
+
+        }
+
+    }
+
+    function importFile()
+    {
+        try {
+            switch ($this->importFormat) {
+                case CONFIG['format']['xml'];
+                    $this->message = 'Вы залили ХМЛ';
+                    $this->importFormat = CONFIG['format']['xml'];
+                    break;
+                case CONFIG['format']['csv'];
+                    $this->message = 'Вы залили CSV';
+                    $this->importFormat = CONFIG['format']['csv'];
+                    break;
+            }
+        } catch (\Exception $e) {
+
         }
     }
-    
+
 }

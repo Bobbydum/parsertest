@@ -21,6 +21,7 @@ class Upload
 {
     public function index(Application $app, Request $request)
     {
+        $importManager = new Import();
         $app->register(new ValidatorServiceProvider());
         $app->register(new FormServiceProvider());
         $app->register(new TranslationServiceProvider(), array(
@@ -49,7 +50,7 @@ class Upload
 
             if ($form->isValid()) {
                 $files = $request->files->get($form->getName());
-                /* Make sure that Upload Directory is properly configured and writable */
+
                 $path = UPLOAD_PATH;
 
                 $filename = $files['FileUpload']->getClientOriginalName();
@@ -60,7 +61,13 @@ class Upload
 
                 $user = "userID is: " . $data['user'] . ' ';
 
-                $message = Import::checkFile($files['FileUpload']);
+                $importManager->userId = $data['user'];
+
+                $importManager->checkFile($files['FileUpload']);
+
+                $message = $importManager->message;
+
+                $importManager->importFile();
             }
         }
 
