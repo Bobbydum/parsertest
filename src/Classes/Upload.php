@@ -8,6 +8,7 @@
 
 namespace App\Classes;
 
+use App\Import\Managers\Import;
 use Silex\Application;
 use Silex\Provider\{
     FormServiceProvider, TranslationServiceProvider, ValidatorServiceProvider
@@ -26,29 +27,47 @@ class Upload
             'translator.messages' => array(),
         ));
 
-
+        $users = [
+            1 => 'Andrey',
+            2 => 'Vladimir',
+            3 => 'Ivan'
+        ];
         $form = $app['form.factory']
             ->createBuilder('form')
             ->add('FileUpload', 'file')
+            ->add('user', 'choice', array(
+                'label' => 'Chose user',
+                'choices' => $users,
+            ))
             ->getForm();
         $request = $app['request'];
         $message = 'Upload a file';
+        $user = 'Please chose owner of file';
         if ($request->isMethod('POST')) {
 
             $form->bind($request);
 
             if ($form->isValid()) {
                 $files = $request->files->get($form->getName());
-                /* Make sure that Upload Directory is properly configured and writable */
+
                 $path = UPLOAD_PATH;
+
                 $filename = $files['FileUpload']->getClientOriginalName();
+
                 $files['FileUpload']->move($path, $filename);
-                $message = 'File was successfully uploaded!';
+
+                $data = $request->request->get('form');
+
+                $user = "userID is: " . $data['user'] . ' ';
+
+                $message = Import::checkFile($files['FileUpload']);
             }
         }
+
         $response = $app['twig']->render(
             'index.html.twig',
             array(
+                'user' => $user,
                 'message' => $message,
                 'form' => $form->createView()
             )

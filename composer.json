@@ -12,7 +12,8 @@
     "symfony/twig-bridge": "2.*",
     "symfony/translation": "2.*",
     "symfony/locale": "2.*",
-    "doctrine/dbal": "2.*"
+    "doctrine/dbal": "2.*",
+    "ddeboer/data-import": "@stable"
   },
   "autoload": {
     "psr-0": { "App": "src" }

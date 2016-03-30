@@ -14,9 +14,9 @@ $app = new Application();
 
 $app['debug'] = true;
 
-$config = include_once 'config/config.php';
+define('CONFIG',include_once 'config/config.php');
 
-$app['users'] = $config['users'];
+$app['users'] = CONFIG['users'];
 
 define('UPLOAD_PATH', __DIR__ . $config['upload']);
 
