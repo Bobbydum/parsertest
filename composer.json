@@ -13,7 +13,8 @@
     "symfony/translation": "2.*",
     "symfony/locale": "2.*",
     "doctrine/dbal": "2.*",
-    "ddeboer/data-import": "@stable"
+    "ddeboer/data-import": "@stable",
+    "thcolin/silex-gearman-service": "dev-master"
   },
   "autoload": {
     "psr-0": { "App": "src" }
