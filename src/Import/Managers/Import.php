@@ -18,6 +18,7 @@ Class Import
     public $valideFile = false;
     public $dataObject;
     private $filepath = null;
+    public $data;
 
     function checkFile($filepath)
     {
@@ -85,6 +86,14 @@ Class Import
 
     function parseData()
     {
+        $array = $this->data;
+        foreach ($array as $string) {
+            $str = implode("###", $string);
+            $fp = fopen(__DIR__ . "/Log_OF_CONSUMER.txt", "wb");
+//            $fp = fopen(LOG_DIR . "/Log_OF_CONSUMER.txt", "wb");
+            fwrite($fp, $str);
+            fclose($fp);
+        }
 
     }
 

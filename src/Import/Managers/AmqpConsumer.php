@@ -10,6 +10,7 @@ namespace App\Import\Managers;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use Silex\Application;
+use App\Import\Managers\Import;
 
 class AmqpConsumer
 {
@@ -21,8 +22,9 @@ class AmqpConsumer
 
     function __construct()
     {
+        $this->importManager = new Import();
         $this->exchange = 'my_exchange';
-        $this->queue = 'parser';
+        $this->queue = CONFIG['amqp']['parse_queue'];
         $this->consumerTag = 'consumer' . getmypid();
         $this->connection = new AMQPStreamConnection(HOST, PORT, USER, PASS, VHOST);
         $this->channel = $this->connection->channel();
@@ -31,18 +33,20 @@ class AmqpConsumer
         $this->channel->queue_bind($this->queue, $this->exchange);
         $this->channel->basic_consume($this->queue, $this->consumerTag, false, false, false, false,
             function ($message) {
-                $message1 = $message->body;
+                $this->message = $message->body;
 
-                $fp = fopen(__DIR__ . "/Log_OF_CONSUMER.txt", "wb");
-                fwrite($fp, $message1);
-                fclose($fp);
+                $this->importManager->data = $this->readMessage();
+                
+                $this->importManager->parseData();
 
                 $message->delivery_info['channel']->basic_ack($message->delivery_info['delivery_tag']);
+
                 // Send a message with the string "quit" to cancel the consumer.
                 if ($message->body === 'quit') {
                     $message->delivery_info['channel']->basic_cancel($message->delivery_info['consumer_tag']);
                 }
             });
+
         register_shutdown_function(function ($channel, $connection) {
             $channel->close();
             $connection->close();
@@ -55,7 +59,6 @@ class AmqpConsumer
     public function readMessage()
     {
         $this->message = unserialize(json_decode(json_encode((array)$this->message), true));
-
     }
 
 

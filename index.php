@@ -1,13 +1,11 @@
 <?php
 require('vendor/autoload.php');
-require('config.php');
+require('config/static.php');
 
 use Silex\Application;
 use Silex\Provider\{
     SerializerServiceProvider, TwigServiceProvider
 };
-
-$app = new Application();
 
 $app['debug'] = true;
 
@@ -18,9 +16,9 @@ $app->register(new TwigServiceProvider(), array(
 
 $app->register(new SerializerServiceProvider());
 
-$app->get('/', 'App\Classes\First::index');
-$app->get('/import_consumer', 'App\Classes\Consumer::index');
-$app->post('/file/', 'App\Classes\Upload::index');
-$app->get('/file/', 'App\Classes\Upload::index');
+$app->get('/', 'App\Controllers\Test::index');
+$app->get('/import_consumer', 'App\Controllers\Consumer::index');
+$app->post('/file/', 'App\Controllers\Upload::index');
+$app->get('/file/', 'App\Controllers\Upload::index');
 
 $app->run(); // Запуск приложения

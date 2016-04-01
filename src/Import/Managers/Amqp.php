@@ -17,7 +17,7 @@ Class Amqp
     function addQueue()
     {
         $exchange = 'my_exchange';
-        $queue = 'parser';
+        $queue = CONFIG['amqp']['parse_queue'];;
         $connection = new AMQPStreamConnection(HOST, PORT, USER, PASS, VHOST);
         $channel = $connection->channel();
         $channel->queue_declare($queue, false, true, false, false);
