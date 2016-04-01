@@ -12,7 +12,8 @@
     "symfony/translation": "2.*",
     "symfony/locale": "2.*",
     "doctrine/dbal": "2.*",
-    "thcolin/silex-gearman-service": "dev-master"
+    "thcolin/silex-gearman-service": "dev-master",
+    "php-amqplib/php-amqplib": "^2.6"
   },
   "autoload": {
     "psr-0": { "App": "src" }
