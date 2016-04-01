@@ -23,8 +23,7 @@ Class Amqp
         $channel->queue_declare($queue, false, true, false, false);
         $channel->exchange_declare($exchange, 'fanout', false, false, false);
         $channel->queue_bind($queue, $exchange);
-        $messageBody = implode(' ', array_slice($this->message, 1));
-        $message = new AMQPMessage($messageBody,
+        $message = new AMQPMessage($this->message,
             array('content_type' => 'text/plain', 'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT));
         $channel->basic_publish($message, $exchange);
         $channel->close();
