@@ -12,7 +12,7 @@ $app['debug'] = true;
 
 define('CONFIG', include_once 'config/config.php');
 
-define('UPLOAD_PATH', __DIR__ . $config['upload']);
+define('UPLOAD_PATH', __DIR__ . CONFIG['upload']);
 
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => array(__DIR__ . '/views'),

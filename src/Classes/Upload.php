@@ -51,19 +51,28 @@ class Upload
             if ($form->isValid()) {
                 $files = $request->files->get($form->getName());
 
-                $path = UPLOAD_PATH;
-
-                $filename = $files['FileUpload']->getClientOriginalName();
-
-                $files['FileUpload']->move($path, $filename);
-
                 $data = $request->request->get('form');
 
                 $user = "userID is: " . $data['user'] . ' ';
 
                 $importManager->userId = $data['user'];
 
-                $importManager->checkFile($files['FileUpload']);
+                $path = UPLOAD_PATH . '/' . $data['user'];
+
+                $filename = $files['FileUpload']->getClientOriginalName();
+
+                try {
+                    $files['FileUpload']->move($path, $filename);
+
+                    var_dump($path . '/' . $filename);
+                } catch (\Exception $e) {
+                    echo "Cant write file" . $e;
+                    return false;
+                }
+
+
+
+                $importManager->checkFile($path . '/' . $filename);
 
                 $message = $importManager->message;
 

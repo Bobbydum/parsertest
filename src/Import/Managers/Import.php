@@ -15,12 +15,16 @@ Class Import
     public $message;
     public $file;
     public $userId;
-    private $documentObject   = null;
+    private $documentObject = null;
+    private $filepath = null;
 
-    function checkFile($file)
+    function checkFile($filepath)
     {
 
-        $ext = $file->getClientOriginalExtension();
+        $file = new \SplFileObject($filepath);
+        $this->filepath = $file->getPathname();
+        $ext = $file->getExtension();
+
         try {
 
             switch ($ext) {
@@ -31,6 +35,8 @@ Class Import
                 case CONFIG['format']['csv'];
                     $this->message[] = 'Вы залили CSV';
                     $this->importFormat = CONFIG['format']['csv'];
+
+
                     break;
             }
 
@@ -44,15 +50,20 @@ Class Import
 
     function importFile()
     {
+        $importter = new ImportFile();
+        $importter->file = $this->file;
+        $importter->filepath = $this->filepath;
+
         try {
             switch ($this->importFormat) {
                 case CONFIG['format']['xml'];
-                    $this->message = 'Вы залили ХМЛ';
                     $this->importFormat = CONFIG['format']['xml'];
+                    $importter->importXml();
                     break;
                 case CONFIG['format']['csv'];
-                    $this->message = 'Вы залили CSV';
                     $this->importFormat = CONFIG['format']['csv'];
+                    $importter->importCsv();
+                    var_dump($importter->dataObject);
                     break;
             }
         } catch (\Exception $e) {
