@@ -16,7 +16,7 @@ Class Amqp
 
     function addQueue()
     {
-        $exchange = 'router';
+        $exchange = 'fanout_exclusive_example_exchange';
         $queue = 'msgs';
         $connection = new AMQPStreamConnection(HOST, PORT, USER, PASS, VHOST);
         $channel = $connection->channel();
@@ -40,7 +40,7 @@ Class Amqp
             durable: true // the exchange will survive server restarts
             auto_delete: false //the exchange won't be deleted once the channel is closed.
         */
-        $channel->exchange_declare($exchange, 'direct', false, true, false);
+        $channel->exchange_declare($exchange, 'fanout', false, false, true);
         $channel->queue_bind($queue, $exchange);
         $messageBody = implode(' ', array_slice($this->message, 1));
         $message = new AMQPMessage($messageBody,

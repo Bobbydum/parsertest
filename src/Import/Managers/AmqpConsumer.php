@@ -8,6 +8,7 @@
 
 namespace App\Import\Managers;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
+use Silex\Application;
 
 class AmqpConsumer
 {
@@ -61,7 +62,15 @@ class AmqpConsumer
 
     function process_message($message)
     {
-        return $message->body;
+        $app = new Application();
+        $this->message = $message->body;
+        $app->register(new MonologServiceProvider(), array(
+            'monolog.logfile' => __DIR__.'/development.log',
+        ));
+        ob_start();
+        var_dump($message);
+        $output = ob_get_clean();
+        $app['monolog']->addInfo(sprintf("Message '%s' registered.", $output));
         $message->delivery_info['channel']->basic_ack($message->delivery_info['delivery_tag']);
         // Send a message with the string "quit" to cancel the consumer.
         if ($message->body === 'quit') {
