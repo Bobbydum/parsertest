@@ -9,11 +9,10 @@ return [
         'user' => 'guest',
         'password' => 'guest',
         'vhost' => '/',
-        'amqp_debug' => true,
-        'parse_queue' => 'parse_queue',
-        'amqp_debug' => 'false'
+        'amqp_debug' => false,
+        'parse_queue' => 'parse_queue'
     ],
-    'log' => 'log',
+    'log' => 'logs',
     'db_connect'=>[
         'db.options' => [
             'driver' => 'pdo_mysql',

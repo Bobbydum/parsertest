@@ -1,6 +1,7 @@
 <?php
 require('vendor/autoload.php');
 require('config/static.php');
+ini_set("max_execution_time", "0");
 
 use Silex\Application;
 use Silex\Provider\{

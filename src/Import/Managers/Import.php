@@ -86,15 +86,22 @@ Class Import
 
     function parseData()
     {
-        $array = $this->data;
-        foreach ($array as $string) {
-            $str = implode("###", $string);
-            $fp = fopen(__DIR__ . "/Log_OF_CONSUMER.txt", "wb");
-//            $fp = fopen(LOG_DIR . "/Log_OF_CONSUMER.txt", "wb");
-            fwrite($fp, $str);
-            fclose($fp);
-        }
+        $array = unserialize($this->data);
+        $this->userId = $array['user_id'];
+        $this->dataObject = $array['data'];
+        $fp = fopen(__DIR__ . "/log_string_from_comsumer.txt", "wb");
+        fwrite($fp, print_r($this->dataObject, true));
+        fclose($fp);
+        foreach ($this->dataObject as $key => $value) {
+//            $fp = fopen(__DIR__ . "/log_string_from_comsumer.txt", "wb");
+//            fwrite($fp, implode('##',$value));
+//            fclose($fp);
 
+        }
+    }
+    public function readMessage()
+    {
+        $this->data = unserialize(json_decode(json_encode((array)$this->data), true));
     }
 
 }

@@ -22,7 +22,7 @@ class AmqpConsumer
 
     function __construct()
     {
-        $this->importManager = new Import();
+
         $this->exchange = 'my_exchange';
         $this->queue = CONFIG['amqp']['parse_queue'];
         $this->consumerTag = 'consumer' . getmypid();
@@ -33,11 +33,15 @@ class AmqpConsumer
         $this->channel->queue_bind($this->queue, $this->exchange);
         $this->channel->basic_consume($this->queue, $this->consumerTag, false, false, false, false,
             function ($message) {
+                $importManager = new Import();
                 $this->message = $message->body;
+//                $fp = fopen(LOG_DIR . "/Log_OF_CONSUMER.txt", "wb");
+//                fwrite($fp, $this->message);
+//                fclose($fp);
 
-                $this->importManager->data = $this->readMessage();
-                
-                $this->importManager->parseData();
+                $importManager->data = $this->message;
+
+                $importManager->parseData();
 
                 $message->delivery_info['channel']->basic_ack($message->delivery_info['delivery_tag']);
 
@@ -54,11 +58,6 @@ class AmqpConsumer
         while (count($this->channel->callbacks)) {
             $this->channel->wait();
         }
-    }
-
-    public function readMessage()
-    {
-        $this->message = unserialize(json_decode(json_encode((array)$this->message), true));
     }
 
 
