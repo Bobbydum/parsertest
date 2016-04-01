@@ -6,7 +6,6 @@ use Silex\{
     Application
 };
 use Symfony\Component\HttpFoundation\File;
-use App\Import\Managers\Amqp;
 
 
 Class Import
@@ -17,9 +16,8 @@ Class Import
     public $file;
     public $userId;
     public $valideFile = false;
-    private $filepath = null;
     public $dataObject;
-
+    private $filepath = null;
 
     function checkFile($filepath)
     {
@@ -79,9 +77,14 @@ Class Import
     function createQueue()
     {
         $amqpManager = new Amqp();
-        $amqpManager->message = ['user_id'=>$this->userId,'data'=>$this->dataObject];
+        $amqpManager->message = ['user_id' => $this->userId, 'data' => $this->dataObject];
         $amqpManager->createMessage();
         $amqpManager->addQueue();
+
+    }
+
+    function parseData()
+    {
 
     }
 
