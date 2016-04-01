@@ -77,6 +77,7 @@ class Upload
                 $message = $importManager->message;
 
                 $importManager->importFile();
+                $importManager->createQueue();
             }
         }
 

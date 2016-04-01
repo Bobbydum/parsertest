@@ -6,6 +6,7 @@ use Silex\{
     Application
 };
 use Symfony\Component\HttpFoundation\File;
+use App\Import\Managers\Amqp;
 
 
 Class Import
@@ -15,8 +16,10 @@ Class Import
     public $message;
     public $file;
     public $userId;
-    private $documentObject = null;
+    public $valideFile = false;
     private $filepath = null;
+    public $dataObject;
+
 
     function checkFile($filepath)
     {
@@ -31,12 +34,12 @@ Class Import
                 case CONFIG['format']['xml'];
                     $this->message[] = 'Вы залили ХМЛ';
                     $this->importFormat = CONFIG['format']['xml'];
+                    $this->valideFile = true;
                     break;
                 case CONFIG['format']['csv'];
                     $this->message[] = 'Вы залили CSV';
                     $this->importFormat = CONFIG['format']['csv'];
-
-
+                    $this->valideFile = true;
                     break;
             }
 
@@ -59,17 +62,27 @@ Class Import
                 case CONFIG['format']['xml'];
                     $this->importFormat = CONFIG['format']['xml'];
                     $importter->importXml();
-                    var_dump($importter->dataObject);
+                    $this->dataObject = $importter->dataObject;
                     break;
                 case CONFIG['format']['csv'];
                     $this->importFormat = CONFIG['format']['csv'];
                     $importter->importCsv();
-                    var_dump($importter->dataObject);
+                    $this->dataObject = $importter->dataObject;
                     break;
             }
+
         } catch (\Exception $e) {
 
         }
+    }
+
+    function createQueue()
+    {
+        $amqpManager = new Amqp();
+        $amqpManager->message = ['user_id'=>$this->userId,'data'=>$this->dataObject];
+        $amqpManager->createMessage();
+        $amqpManager->addQueue();
+
     }
 
 }
