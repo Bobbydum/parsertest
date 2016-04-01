@@ -41,7 +41,7 @@ class ImportFile
         }
         $xml = simplexml_load_string($contents);
 
-        foreach ($xml as $data){
+        foreach ($xml as $data) {
             $this->dataObject[] = (array)$data;
         }
     }
