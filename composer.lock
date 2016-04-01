@@ -4,78 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "210288afdfad12ee85f8d2a864e8ccee",
-    "content-hash": "75025edc86a178beaa3769209c09d4a7",
+    "hash": "3b09daf1bb197f127de9807b95ea16d8",
+    "content-hash": "85c514bc06c9c60bcbbb662f0f65372b",
     "packages": [
-        {
-            "name": "ddeboer/data-import",
-            "version": "0.18.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ddeboer/data-import.git",
-                "reference": "cbae2f570192b738c5cec835fbf583a75c52d535"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/cbae2f570192b738c5cec835fbf583a75c52d535",
-                "reference": "cbae2f570192b738c5cec835fbf583a75c52d535",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "doctrine/dbal": "*",
-                "doctrine/orm": "*",
-                "ext-iconv": "*",
-                "ext-mbstring": "*",
-                "ext-sqlite3": "*",
-                "phpoffice/phpexcel": "*",
-                "symfony/console": "~2.5.0",
-                "symfony/property-access": "*",
-                "symfony/validator": "~2.3.0"
-            },
-            "suggest": {
-                "doctrine/dbal": "If you want to use the DbalReader",
-                "ext-iconv": "For the CharsetValueConverter",
-                "ext-mbstring": "For the CharsetValueConverter",
-                "phpoffice/phpexcel": "If you want to use the ExcelReader",
-                "symfony/console": "If you want to use the ConsoleProgressWriter",
-                "symfony/property-access": "If you want to use the ObjectConverter",
-                "symfony/validator": "to use the ValidatorFilter"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Ddeboer\\DataImport": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "The community",
-                    "homepage": "https://github.com/ddeboer/data-import/graphs/contributors"
-                },
-                {
-                    "name": "David de Boer",
-                    "email": "david@ddeboer.nl"
-                }
-            ],
-            "description": "Import data from, and export data to, a range of file formats and media",
-            "keywords": [
-                "csv",
-                "data",
-                "doctrine",
-                "excel",
-                "export",
-                "import"
-            ],
-            "time": "2015-04-21 14:06:20"
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.7",
@@ -908,75 +839,6 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
-        },
-        {
-            "name": "php-amqplib/php-amqplib",
-            "version": "v2.6.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "ba9468b08b5ff90859ef5069a6b9a70bcdd98fa1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/ba9468b08b5ff90859ef5069a6b9a70bcdd98fa1",
-                "reference": "ba9468b08b5ff90859ef5069a6b9a70bcdd98fa1",
-                "shasum": ""
-            },
-            "require": {
-                "ext-bcmath": "*",
-                "ext-mbstring": "*",
-                "php": ">=5.3.0"
-            },
-            "replace": {
-                "videlalvaro/php-amqplib": "self.version"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "scrutinizer/ocular": "^1.1"
-            },
-            "suggest": {
-                "ext-sockets": "Use AMQPSocketConnection"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PhpAmqpLib\\": "PhpAmqpLib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-2.1"
-            ],
-            "authors": [
-                {
-                    "name": "Alvaro Videla",
-                    "role": "Original Maintainer"
-                },
-                {
-                    "name": "John Kelly",
-                    "email": "johnmkelly86@gmail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Raúl Araya",
-                    "email": "nubeiro@gmail.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Formerly videlalvaro/php-amqplib.  This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
-            "homepage": "https://github.com/php-amqplib/php-amqplib/",
-            "keywords": [
-                "message",
-                "queue",
-                "rabbitmq"
-            ],
-            "time": "2016-03-02 16:36:48"
         },
         {
             "name": "pimple/pimple",
@@ -3322,7 +3184,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ddeboer/data-import": 0,
         "thcolin/silex-gearman-service": 20
     },
     "prefer-stable": false,

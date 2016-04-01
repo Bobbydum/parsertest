@@ -6,3 +6,6 @@
 composer.phar
 log/*
 log
+/cache/
+cache
+/cache

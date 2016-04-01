@@ -5,7 +5,6 @@
     "symfony/serializer": "2.*",
     "symfony/config": "2.*",
     "symfony/security": "2.*",
-    "php-amqplib/php-amqplib": "2.*",
     "symfony/form": "2.*",
     "symfony/security-csrf": "2.*",
     "symfony/validator": "2.*",
@@ -13,7 +12,6 @@
     "symfony/translation": "2.*",
     "symfony/locale": "2.*",
     "doctrine/dbal": "2.*",
-    "ddeboer/data-import": "@stable",
     "thcolin/silex-gearman-service": "dev-master"
   },
   "autoload": {
