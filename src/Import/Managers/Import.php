@@ -59,6 +59,7 @@ Class Import
                 case CONFIG['format']['xml'];
                     $this->importFormat = CONFIG['format']['xml'];
                     $importter->importXml();
+                    var_dump($importter->dataObject);
                     break;
                 case CONFIG['format']['csv'];
                     $this->importFormat = CONFIG['format']['csv'];
