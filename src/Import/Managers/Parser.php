@@ -122,8 +122,8 @@ class Parser
         $date = date("Y-m-d H:i:s", time());
         $this->newProduct['created_at']=$date;
         $newID = $this->productTable->insertNewProduct($this->newProduct);
-        $log = new Log('id_New_Product_'.$userName);
-        $log->writeLog('New id is - '.$newID);
+//        $log = new Log('id_New_Product_'.$userName);
+//        $log->writeLog('New id is - '.$newID);
         $this->relation->addNewRelation($newID,$userId,$this->userId);
 
     }
@@ -133,8 +133,8 @@ class Parser
         $this->newProduct['created_at']=$date;
         $this->productTable->updateRelatedProduct($this->newProduct,$id);
         $userName = $this->user->getUserName($this->userId);
-        $log = new Log('id_Updated_Product_'.$userName);
-        $log->writeLog('New id is - '.$id);
+//        $log = new Log('id_Updated_Product_'.$userName);
+//        $log->writeLog('New id is - '.$id);
 
     }
 
