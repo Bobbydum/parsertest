@@ -78,7 +78,10 @@ Class Import
     function createQueue()
     {
         $amqpManager = new Amqp();
-        $amqpManager->message = ['user_id' => $this->userId, 'data' => $this->dataObject];
+        $parser = new Parser();
+        $userId = $parser::$userFild;
+        $dataFild = $parser::$dataFild;
+        $amqpManager->message = [$userId => $this->userId, $dataFild => $this->dataObject];
         $amqpManager->createMessage();
         $amqpManager->addQueue();
 
@@ -87,17 +90,13 @@ Class Import
     function parseData()
     {
         $array = unserialize($this->data);
-        $this->userId = $array['user_id'];
-        $this->dataObject = $array['data'];
-        $fp = fopen(__DIR__ . "/log_string_from_comsumer.txt", "wb");
-        fwrite($fp, print_r($this->dataObject, true));
-        fclose($fp);
-        foreach ($this->dataObject as $key => $value) {
-//            $fp = fopen(__DIR__ . "/log_string_from_comsumer.txt", "wb");
-//            fwrite($fp, implode('##',$value));
-//            fclose($fp);
-
-        }
+        $parser = new Parser();
+        $userId = $parser::$userFild;
+        $dataFild = $parser::$dataFild;
+        $parser->userId = $array[$userId];
+        $parser->dataObject = $array[$dataFild];
+        $parser->parseData();
+        
     }
     public function readMessage()
     {

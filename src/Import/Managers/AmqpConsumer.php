@@ -35,9 +35,6 @@ class AmqpConsumer
             function ($message) {
                 $importManager = new Import();
                 $this->message = $message->body;
-//                $fp = fopen(LOG_DIR . "/Log_OF_CONSUMER.txt", "wb");
-//                fwrite($fp, $this->message);
-//                fclose($fp);
 
                 $importManager->data = $this->message;
 
@@ -45,7 +42,6 @@ class AmqpConsumer
 
                 $message->delivery_info['channel']->basic_ack($message->delivery_info['delivery_tag']);
 
-                // Send a message with the string "quit" to cancel the consumer.
                 if ($message->body === 'quit') {
                     $message->delivery_info['channel']->basic_cancel($message->delivery_info['consumer_tag']);
                 }

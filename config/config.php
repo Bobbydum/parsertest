@@ -9,7 +9,7 @@ return [
         'user' => 'guest',
         'password' => 'guest',
         'vhost' => '/',
-        'amqp_debug' => false,
+        'amqp_debug' => true,
         'parse_queue' => 'parse_queue'
     ],
     'log' => 'logs',

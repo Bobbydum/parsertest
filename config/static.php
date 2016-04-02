@@ -16,7 +16,7 @@ define('VHOST', CONFIG['amqp']['vhost']);
 //If this is enabled you can see AMQP output on the CLI
 define('AMQP_DEBUG', CONFIG['amqp']['amqp_debug']);
 
-define('LOG_DIR', __DIR__ . CONFIG['log']);
+define('LOG_DIR', __DIR__ ."/../". CONFIG['log']);
 
 $app = new Silex\Application();
 
