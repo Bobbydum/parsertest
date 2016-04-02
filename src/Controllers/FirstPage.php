@@ -6,18 +6,21 @@
  * Time: 0:08
  */
 
+
 namespace App\Controllers;
 
+use Silex\Application;
 
 class FirstPage
 {
 
-    public function index(Application $app){
+    public function index(Application $app)
+    {
         $response = $app['twig']->render(
             'first.html.twig',
             array(
                 'message' => 'This is place for admin pages!'
-                
+
             )
         );
 
