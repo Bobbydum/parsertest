@@ -22,9 +22,6 @@ class Publicher
             $filePath =  $user['url_for_parse'];
             $importManager->userId = $userId;
             $importManager->checkFile($filePath);
-
-            $message = $importManager->message;
-
             $importManager->importFile();
             $importManager->createQueue();
         }

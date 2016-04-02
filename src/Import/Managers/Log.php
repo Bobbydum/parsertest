@@ -18,11 +18,11 @@ class Log
     /**
      * Log constructor.
      */
-    public function __construct()
+    public function __construct($filename = 'parser')
     {
         $this->app = new Application();
         $this->app->register(new MonologServiceProvider(), array(
-            'monolog.logfile' => LOG_DIR.'/parser.log',
+            'monolog.logfile' => LOG_DIR.'/'.$filename.'.log',
         ));
     }
 

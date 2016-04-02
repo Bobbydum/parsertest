@@ -17,7 +17,7 @@ $app->register(new TwigServiceProvider(), array(
 
 $app->register(new SerializerServiceProvider());
 
-$app->get('/', 'App\Controllers\Test::index');
+$app->get('/', 'App\Controllers\FirstPage::index');
 $app->get('/import_consumer', 'App\Controllers\Consumer::index');
 $app->post('/file/', 'App\Controllers\Upload::index');
 $app->get('/file/', 'App\Controllers\Upload::index');

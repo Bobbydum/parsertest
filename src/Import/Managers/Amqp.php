@@ -38,10 +38,7 @@ Class Amqp
 
     }
 
-    public function createMessage()
-    {
-        $this->message = serialize(json_decode(json_encode((array)$this->message), true));
-    }
+    
 
 
 }

@@ -70,6 +70,7 @@ Class Import
                     break;
             }
 
+
         } catch (\Exception $e) {
 
         }
@@ -77,12 +78,13 @@ Class Import
 
     function createQueue()
     {
+
         $amqpManager = new Amqp();
         $parser = new Parser();
-        $userId = $parser::$userFild;
-        $dataFild = $parser::$dataFild;
-        $amqpManager->message = [$userId => $this->userId, $dataFild => $this->dataObject];
-        $amqpManager->createMessage();
+        $userId = $parser::$userField;
+        $dataField = $parser::$dataField;
+        $message = $this->createMessage([$userId => $this->userId, $dataField => $this->dataObject]);
+        $amqpManager->message = $message;
         $amqpManager->addQueue();
 
     }
@@ -91,16 +93,22 @@ Class Import
     {
         $array = unserialize($this->data);
         $parser = new Parser();
-        $userId = $parser::$userFild;
-        $dataFild = $parser::$dataFild;
+        $userId = $parser::$userField;
+        $dataField = $parser::$dataField;
         $parser->userId = $array[$userId];
-        $parser->dataObject = $array[$dataFild];
+        $parser->dataObject = $array[$dataField];
         $parser->parseData();
-        
     }
+
     public function readMessage()
     {
         $this->data = unserialize(json_decode(json_encode((array)$this->data), true));
+    }
+
+    public function createMessage($message)
+    {
+        $message = serialize(json_decode(json_encode((array)$message), true));
+        return $message;
     }
 
 }
