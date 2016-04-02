@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `currency_relation`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `currency_relation` (
   `relation_id` int(12) NOT NULL AUTO_INCREMENT,
-  `our_currency_value` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_currency_value` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `our_value` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `user_value` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   `user_id` int(12) DEFAULT NULL,
   `default` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`relation_id`)
@@ -43,17 +43,17 @@ INSERT INTO `currency_relation` VALUES (1,'1','USD',2,1),(2,'2','RUB',2,0),(3,'3
 UNLOCK TABLES;
 
 --
--- Table structure for table `orders`
+-- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `orders`;
+DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `orders` (
-  `id` int(12) NOT NULL,
+CREATE TABLE `products` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
   `user_id` int(12) DEFAULT NULL,
   `state` int(12) DEFAULT NULL,
-  `order_payment` float DEFAULT NULL,
+  `order_payment` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `currency_id` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `data` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -63,12 +63,12 @@ CREATE TABLE `orders` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `orders`
+-- Dumping data for table `products`
 --
 
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -79,11 +79,10 @@ DROP TABLE IF EXISTS `relation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `relation` (
-  `our_order_id` int(25) NOT NULL,
-  `user_order_id` int(25) DEFAULT NULL,
+  `our_product_id` int(25) NOT NULL,
+  `user_product_id` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_id` int(25) DEFAULT NULL,
-  `relationcol` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`our_order_id`)
+  PRIMARY KEY (`our_product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -108,8 +107,9 @@ CREATE TABLE `state_relation` (
   `user_value` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `our_value` int(3) DEFAULT NULL,
   `user_id` tinyint(3) DEFAULT NULL,
+  `default` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`relation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,6 +118,7 @@ CREATE TABLE `state_relation` (
 
 LOCK TABLES `state_relation` WRITE;
 /*!40000 ALTER TABLE `state_relation` DISABLE KEYS */;
+INSERT INTO `state_relation` VALUES (1,'declined',3,1,NULL),(2,'declined',3,2,NULL),(3,'pending',2,1,NULL),(4,'pending',2,2,NULL),(5,'approved',4,1,NULL),(6,'approved',4,2,NULL),(7,'unnoun',1,1,1),(8,'unnoun',1,2,1);
 /*!40000 ALTER TABLE `state_relation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +145,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,10,NULL,NULL,'eBay'),(2,5,NULL,NULL,'XMLTest');
+INSERT INTO `users` VALUES (1,10,'2016-04-03 00:12:22','http://parser.dev/web/uploads/csv.csv','eBay'),(2,5,'2016-04-03 00:23:07','http://parser.dev/web/uploads/xml.xml','XMLTest');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,4 +184,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-01  6:20:53
+-- Dump completed on 2016-04-03  0:51:52
