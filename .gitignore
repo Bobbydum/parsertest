@@ -9,3 +9,5 @@ log
 /cache/
 cache
 /cache
+/logs
+logs/*
