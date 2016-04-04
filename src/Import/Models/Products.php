@@ -17,6 +17,13 @@ class Products extends DbConnect
     public static $user_id = 'user_id';
     public static $state = 'state';
     public static $order_payment = 'order_payment';
+    public static $required_keys = [
+        'user_id',
+        'state',
+        'order_payment',
+        'currency_id',
+        'merchant_id'
+    ];
     public $currency_id = 'currency_id';
     public $created_at = 'created_at';
     public $data = 'data';
@@ -24,9 +31,6 @@ class Products extends DbConnect
     public $relatedObject = [
         'currency_id' => 'currency_relation',
         'state' => 'state_relation'
-    ];
-    public static $required_keys = [
-        'user_id','state','order_payment','currency_id','merchant_id'
     ];
     private $db;
 
@@ -36,13 +40,14 @@ class Products extends DbConnect
 
     }
 
-    public function checkAllFilds($data){
-        foreach ($this::$required_keys as $key){
-            if(!array_key_exists($key,$data)){
-                return ['error'=>$key];
+    public function checkAllFilds($data)
+    {
+        foreach ($this::$required_keys as $key) {
+            if (!array_key_exists($key, $data)) {
+                return ['error' => $key];
             }
         }
-        return['sucess'=>1];
+        return ['sucess' => 1];
     }
 
 
@@ -53,12 +58,12 @@ class Products extends DbConnect
 
     public function insertNewProduct($data)
     {
-        $this->db->insert('products',$data);
+        $this->db->insert('products', $data);
         return $this->db->lastInsertId();
 
     }
 
-    public function updateRelatedProduct($data,$our_product_id)
+    public function updateRelatedProduct($data, $our_product_id)
     {
         $this->db->update('products', $data, [$this::$keyValue => $our_product_id]);
     }

@@ -66,7 +66,7 @@ class ValueRelation extends DbConnect
         return $values;
     }
 
-    public function getRelatedValueWithDefault($table, $userValue='', $userID)
+    public function getRelatedValueWithDefault($table, $userValue = '', $userID)
     {
         $sql = "SELECT 
     IFNULL((SELECT 

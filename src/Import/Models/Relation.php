@@ -9,8 +9,6 @@
 namespace App\Import\Models;
 
 
-use App\Import\Managers\Log;
-
 class Relation extends DbConnect
 {
 
@@ -43,16 +41,17 @@ class Relation extends DbConnect
         return $this->db->fetchColumn($sql);
 
     }
-    
-    public function addNewRelation($our_product_id,$user_product_id,$user_id){
+
+    public function addNewRelation($our_product_id, $user_product_id, $user_id)
+    {
         $data = [
-            $this::$user_id=>$user_id,
-            $this::$our_product_id=>$our_product_id,
-            $this::$user_product_id=>$user_product_id
+            $this::$user_id => $user_id,
+            $this::$our_product_id => $our_product_id,
+            $this::$user_product_id => $user_product_id
         ];
-        $this->db->insert('relation',$data);
+        $this->db->insert('relation', $data);
         return $this->db->lastInsertId();
-        
+
     }
 
 

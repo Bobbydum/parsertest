@@ -15,7 +15,8 @@ use App\Import\Models\ValueRelation;
 
 class Test
 {
-    public function index(){
+    public function index()
+    {
 
 
         $user = new User();
@@ -39,15 +40,12 @@ class Test
         $relatedFildArr = $this->productTable->relatedObject;
 
         var_dump($relatedFildArr);
-        var_dump( array_intersect_key($allRelatedValues,$relatedFildArr));
-
-
+        var_dump(array_intersect_key($allRelatedValues, $relatedFildArr));
 
 
         return true;
-        
-        
-        
+
+
     }
 
 }

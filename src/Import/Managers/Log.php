@@ -22,11 +22,12 @@ class Log
     {
         $this->app = new Application();
         $this->app->register(new MonologServiceProvider(), array(
-            'monolog.logfile' => LOG_DIR.'/'.$filename.'.log',
+            'monolog.logfile' => LOG_DIR . '/' . $filename . '.log',
         ));
     }
 
-    public function writeLog($message){
+    public function writeLog($message)
+    {
 
         $this->app['monolog']->addInfo($message);
     }

@@ -17,7 +17,7 @@ class DbConnect
 
     public function connect()
     {
-        $app  = new Application();
+        $app = new Application();
         $app->register(new DoctrineServiceProvider(), DB_CONNECT);
         return $app;
     }

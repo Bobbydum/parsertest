@@ -55,12 +55,15 @@ class User extends DbConnect
         return $users;
     }
 
-    public function getUserName($userId){
+    public function getUserName($userId)
+    {
         $sql = "SELECT name FROM parser.users WHERE user_id = $userId;";
         return $this->db->fetchColumn($sql);
 
     }
-    public function updateTimeImport($time,$userId){
+
+    public function updateTimeImport($time, $userId)
+    {
         $this->db->update('users', ['last_parse_time' => $time], ['user_id' => $userId]);
 
     }

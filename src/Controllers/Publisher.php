@@ -13,13 +13,14 @@ use App\Import\Models\User;
 
 class Publicher
 {
-    function __construct(){
+    function __construct()
+    {
         $importManager = new Import();
         $user = new User();
         $allUsers = $user->getAllUserForImport();
-        foreach ($allUsers as $user){
+        foreach ($allUsers as $user) {
             $userId = $user['user_id'];
-            $filePath =  $user['url_for_parse'];
+            $filePath = $user['url_for_parse'];
             $importManager->userId = $userId;
             $importManager->checkFile($filePath);
             $importManager->importFile();

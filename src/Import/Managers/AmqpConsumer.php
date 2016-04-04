@@ -10,7 +10,6 @@ namespace App\Import\Managers;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use Silex\Application;
-use App\Import\Managers\Import;
 
 class AmqpConsumer
 {

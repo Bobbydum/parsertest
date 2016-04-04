@@ -71,7 +71,6 @@ class Upload
                 }
 
 
-
                 $importManager->checkFile($path . '/' . $filename);
 
                 $message = $importManager->message;

@@ -17,8 +17,8 @@ Class Import
     public $userId;
     public $valideFile = false;
     public $dataObject;
-    private $filepath = null;
     public $data;
+    private $filepath = null;
 
     function checkFile($filepath)
     {
@@ -89,6 +89,12 @@ Class Import
 
     }
 
+    public function createMessage($message)
+    {
+        $message = serialize(json_decode(json_encode((array)$message), true));
+        return $message;
+    }
+
     function parseData()
     {
         $array = unserialize($this->data);
@@ -103,12 +109,6 @@ Class Import
     public function readMessage()
     {
         $this->data = unserialize(json_decode(json_encode((array)$this->data), true));
-    }
-
-    public function createMessage($message)
-    {
-        $message = serialize(json_decode(json_encode((array)$message), true));
-        return $message;
     }
 
 }
