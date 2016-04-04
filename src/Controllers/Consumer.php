@@ -9,13 +9,22 @@
 namespace App\Controllers;
 
 use App\Import\Managers\AmqpConsumer;
-use Silex\Application;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class Consumer
+class Consumer extends Command
 {
-    function index(Application $app)
+    function execute(InputInterface $input, OutputInterface $output)
     {
         new AmqpConsumer();
+        $output->writeln('Start consumer');
+    }
+
+    protected function configure()
+    {
+        $this
+            ->setName('consumer');
     }
 
 }

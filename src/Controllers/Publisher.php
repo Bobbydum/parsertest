@@ -10,10 +10,14 @@ namespace App\Controllers;
 
 use App\Import\Managers\Import;
 use App\Import\Models\User;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class Publicher
+class Publicher extends Command
 {
-    function __construct()
+
+    function execute(InputInterface $input, OutputInterface $output)
     {
         $importManager = new Import();
         $user = new User();
@@ -25,9 +29,14 @@ class Publicher
             $importManager->checkFile($filePath);
             $importManager->importFile();
             $importManager->createQueue();
+            $output->writeln('Start consumer');
         }
-        return true;
+    }
 
+    protected function configure()
+    {
+        $this
+            ->setName('publisher');
     }
 
 }
