@@ -9,10 +9,9 @@
 namespace App\Import\Managers;
 
 
-use App\Import\Models\Products;
-use App\Import\Models\Relation;
-use App\Import\Models\User;
-use App\Import\Models\ValueRelation;
+use App\Import\Models\{
+    Products, Relation, User, ValueRelation
+};
 
 class Parser
 {
@@ -78,10 +77,11 @@ class Parser
                 }
             }
         }
-        if ($userKeyField) {
+        if (isset($userKeyField)) {
             $this->getData($userKeyField, $this->product);
             $validProduct = $this->productTable->checkAllFilds($this->newProduct);
-            if ($validProduct['sucess'] == 1) {
+
+            if (array_key_exists('sucess', $validProduct) && $validProduct['sucess'] == 1) {
                 if ($ourKey || $relatedID) {
                     $this->parseExistProduct($ourKey, $userKeyField);
                 } else {
@@ -103,10 +103,12 @@ class Parser
         $allRelatedValues = $this->valueRelation->getAllRelatedValues($this->userId);
         $allRelatedValuesWithDefoult = array_intersect_key($allRelatedValues, $relatedFieldArr);
         foreach ($allRelatedValuesWithDefoult as $key => $value) {
-            $userValue = $data[$value];
-            $this->newProduct[$key] = $this->valueRelation->getRelatedValueWithDefault($relatedFieldArr[$key],
-                $userValue, $this->userId);
-            unset($data[$value]);
+            if (array_key_exists($value, $data)) {
+                $userValue = $data[$value];
+                $this->newProduct[$key] = $this->valueRelation->getRelatedValueWithDefault($relatedFieldArr[$key],
+                    $userValue, $this->userId);
+                unset($data[$value]);
+            }
         }
         foreach ($data as $userKey => $userValue) {
             if ($userKey != $idField) {
@@ -126,20 +128,14 @@ class Parser
         $date = date("Y-m-d H:i:s", time());
         $this->newProduct['created_at'] = $date;
         $this->productTable->updateRelatedProduct($this->newProduct, $id);
-        $userName = $this->user->getUserName($this->userId);
-//        $log = new Log('id_Updated_Product_'.$userName);
-//        $log->writeLog('New id is - '.$id);
 
     }
 
     public function parseNewProduct($userId, $idField)
     {
-        $userName = $this->user->getUserName($this->userId);
         $date = date("Y-m-d H:i:s", time());
         $this->newProduct['created_at'] = $date;
         $newID = $this->productTable->insertNewProduct($this->newProduct);
-//        $log = new Log('id_New_Product_'.$userName);
-//        $log->writeLog('New id is - '.$newID);
         $this->relation->addNewRelation($newID, $userId, $this->userId);
 
     }
