@@ -12,9 +12,9 @@
     "symfony/translation": "2.*",
     "symfony/locale": "2.*",
     "doctrine/dbal": "2.*",
-    "thcolin/silex-gearman-service": "dev-master",
     "php-amqplib/php-amqplib": "^2.6",
-    "monolog/monolog": "^1.18"
+    "monolog/monolog": "^1.18",
+    "symfony/console": "^3.0"
   },
   "autoload": {
     "psr-0": { "App": "src" }

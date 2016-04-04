@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0be0a3ff1c84663b55c80e4ded4f84c8",
-    "content-hash": "694443124a02653af81e3377a665d89d",
+    "hash": "04ee29adad407a3a2df72a0da63c7600",
+    "content-hash": "24e2c04de50921611ce5a45fc2ef641e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -477,177 +477,6 @@
             "time": "2014-09-09 13:34:57"
         },
         {
-            "name": "guzzlehttp/guzzle",
-            "version": "6.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d094e337976dff9d8e2424e8485872194e768662"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d094e337976dff9d8e2424e8485872194e768662",
-                "reference": "d094e337976dff9d8e2424e8485872194e768662",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/promises": "~1.0",
-                "guzzlehttp/psr7": "~1.1",
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "phpunit/phpunit": "~4.0",
-                "psr/log": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.2-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2016-03-21 20:02:09"
-        },
-        {
-            "name": "guzzlehttp/promises",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/promises.git",
-                "reference": "bb9024c526b22f3fe6ae55a561fd70653d470aa8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/bb9024c526b22f3fe6ae55a561fd70653d470aa8",
-                "reference": "bb9024c526b22f3fe6ae55a561fd70653d470aa8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle promises library",
-            "keywords": [
-                "promise"
-            ],
-            "time": "2016-03-08 01:15:46"
-        },
-        {
-            "name": "guzzlehttp/psr7",
-            "version": "1.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/psr7.git",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "PSR-7 message implementation",
-            "keywords": [
-                "http",
-                "message",
-                "stream",
-                "uri"
-            ],
-            "time": "2016-02-18 21:54:00"
-        },
-        {
             "name": "ircmaxell/password-compat",
             "version": "v1.0.4",
             "source": {
@@ -688,109 +517,6 @@
                 "password"
             ],
             "time": "2014-11-20 16:49:30"
-        },
-        {
-            "name": "knplabs/console-service-provider",
-            "version": "1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/ConsoleServiceProvider.git",
-                "reference": "7a839206270755483f6a06a6cfb3308fa6f9c562"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/ConsoleServiceProvider/zipball/7a839206270755483f6a06a6cfb3308fa6f9c562",
-                "reference": "7a839206270755483f6a06a6cfb3308fa6f9c562",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/console": "~2.3|~3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Knp\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Knplabs",
-                    "homepage": "http://knplabs.com"
-                }
-            ],
-            "description": "console service provider for Silex",
-            "homepage": "http://knplabs.com",
-            "keywords": [
-                "console",
-                "silex"
-            ],
-            "time": "2016-02-01 15:38:27"
-        },
-        {
-            "name": "mhlavac/gearman",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mhlavac/gearman.git",
-                "reference": "037f09d657da03c7d5d3513b299b4f6a310dff8e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mhlavac/gearman/zipball/037f09d657da03c7d5d3513b299b4f6a310dff8e",
-                "reference": "037f09d657da03c7d5d3513b299b4f6a310dff8e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "~1.10",
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "MHlavac\\Gearman\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "New BSD"
-            ],
-            "authors": [
-                {
-                    "name": "Till Klampaeckel",
-                    "homepage": "http://pear.php.net/user/till"
-                },
-                {
-                    "name": "Brian L. Moon",
-                    "homepage": "http://pear.php.net/user/brianlmoon"
-                },
-                {
-                    "name": "Joe Stump",
-                    "homepage": "http://pear.php.net/user/jstump"
-                },
-                {
-                    "name": "Chris Goffinet",
-                    "homepage": "http://pear.php.net/user/lenn0x"
-                },
-                {
-                    "name": "Martin Hlavac",
-                    "homepage": "http://www.mhlavac.net"
-                }
-            ],
-            "description": "Gearman (http://www.danga.com/gearman) is a system to farm out work to other machines. It can load balance function calls to lots of machines and allows you to call functions between languages. It can also run all function calls in parallel.",
-            "time": "2015-11-02 10:00:34"
         },
         {
             "name": "monolog/monolog",
@@ -1034,55 +760,6 @@
             "time": "2013-11-22 08:30:29"
         },
         {
-            "name": "psr/http-message",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2015-05-04 20:22:00"
-        },
-        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -1198,117 +875,6 @@
             "time": "2016-01-06 14:59:35"
         },
         {
-            "name": "symfony/asset",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/asset.git",
-                "reference": "ae5e0397523f6c75d28e500731a4300385f1a11b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/ae5e0397523f6c75d28e500731a4300385f1a11b",
-                "reference": "ae5e0397523f6c75d28e500731a4300385f1a11b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "symfony/http-foundation": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/http-foundation": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Asset\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Asset Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-10 10:34:12"
-        },
-        {
-            "name": "symfony/class-loader",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/class-loader.git",
-                "reference": "cbb7e6a9c0213a0cffa5d9065ee8214ca4e83877"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/class-loader/zipball/cbb7e6a9c0213a0cffa5d9065ee8214ca4e83877",
-                "reference": "cbb7e6a9c0213a0cffa5d9065ee8214ca4e83877",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "symfony/finder": "~2.8|~3.0",
-                "symfony/polyfill-apcu": "~1.1"
-            },
-            "suggest": {
-                "symfony/polyfill-apcu": "For using ApcClassLoader on HHVM"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\ClassLoader\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony ClassLoader Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-30 10:41:14"
-        },
-        {
             "name": "symfony/config",
             "version": "v2.8.4",
             "source": {
@@ -1363,26 +929,26 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.4",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "9a5aef5fc0d4eff86853d44202b02be8d5a20154"
+                "reference": "6b1175135bc2a74c08a28d89761272de8beed8cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/9a5aef5fc0d4eff86853d44202b02be8d5a20154",
-                "reference": "9a5aef5fc0d4eff86853d44202b02be8d5a20154",
+                "url": "https://api.github.com/repos/symfony/console/zipball/6b1175135bc2a74c08a28d89761272de8beed8cd",
+                "reference": "6b1175135bc2a74c08a28d89761272de8beed8cd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": ">=5.5.9",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1|~3.0.0",
-                "symfony/process": "~2.1|~3.0.0"
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/process": "~2.8|~3.0"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -1392,7 +958,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -1419,7 +985,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-17 09:19:04"
+            "time": "2016-03-16 17:00:50"
         },
         {
             "name": "symfony/debug",
@@ -1475,65 +1041,6 @@
                 }
             ],
             "description": "Symfony Debug Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-30 10:41:14"
-        },
-        {
-            "name": "symfony/dependency-injection",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "6a9058101b591edced21ca3c83c80a3978f5c6b0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/6a9058101b591edced21ca3c83c80a3978f5c6b0",
-                "reference": "6a9058101b591edced21ca3c83c80a3978f5c6b0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "symfony/config": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/yaml": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/config": "",
-                "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them",
-                "symfony/yaml": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DependencyInjection\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
             "time": "2016-03-30 10:41:14"
         },
@@ -1647,55 +1154,6 @@
             "time": "2016-03-27 10:24:39"
         },
         {
-            "name": "symfony/finder",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/finder.git",
-                "reference": "c54e407b35bc098916704e9fd090da21da4c4f52"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/c54e407b35bc098916704e9fd090da21da4c4f52",
-                "reference": "c54e407b35bc098916704e9fd090da21da4c4f52",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Finder\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Finder Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-10 11:13:05"
-        },
-        {
             "name": "symfony/form",
             "version": "v2.8.4",
             "source": {
@@ -1768,98 +1226,6 @@
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
             "time": "2016-03-27 10:21:58"
-        },
-        {
-            "name": "symfony/framework-bundle",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/framework-bundle.git",
-                "reference": "73134a2f1fc6c1a8557f20f785a18057fcc9d11c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/73134a2f1fc6c1a8557f20f785a18057fcc9d11c",
-                "reference": "73134a2f1fc6c1a8557f20f785a18057fcc9d11c",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/annotations": "~1.0",
-                "doctrine/cache": "~1.0",
-                "php": ">=5.5.9",
-                "symfony/asset": "~2.8|~3.0",
-                "symfony/class-loader": "~2.8|~3.0",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.8|~3.0",
-                "symfony/event-dispatcher": "~2.8|~3.0",
-                "symfony/filesystem": "~2.8|~3.0",
-                "symfony/finder": "~2.8|~3.0",
-                "symfony/http-foundation": "~2.8|~3.0",
-                "symfony/http-kernel": "~2.8|~3.0",
-                "symfony/polyfill-mbstring": "~1.0",
-                "symfony/routing": "~3.0",
-                "symfony/security-core": "~2.8|~3.0",
-                "symfony/security-csrf": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0",
-                "symfony/templating": "~2.8|~3.0",
-                "symfony/translation": "~2.8|~3.0"
-            },
-            "require-dev": {
-                "phpdocumentor/reflection": "^1.0.7",
-                "symfony/browser-kit": "~2.8|~3.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/css-selector": "~2.8|~3.0",
-                "symfony/dom-crawler": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/form": "~2.8|~3.0",
-                "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/process": "~2.8|~3.0",
-                "symfony/property-info": "~2.8|~3.0",
-                "symfony/security": "~2.8|~3.0",
-                "symfony/validator": "~2.8|~3.0",
-                "symfony/yaml": "~2.8|~3.0",
-                "twig/twig": "~1.23|~2.0"
-            },
-            "suggest": {
-                "symfony/console": "For using the console commands",
-                "symfony/form": "For using forms",
-                "symfony/process": "For using the server:run, server:start, server:stop, and server:status commands",
-                "symfony/property-info": "For using the property_info service",
-                "symfony/serializer": "For using the serializer service",
-                "symfony/validator": "For using validation",
-                "symfony/yaml": "For using the debug:config and lint:yaml commands"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Bundle\\FrameworkBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony FrameworkBundle",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-27 10:25:16"
         },
         {
             "name": "symfony/http-foundation",
@@ -2516,55 +1882,6 @@
             "time": "2016-01-20 09:13:37"
         },
         {
-            "name": "symfony/process",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/process.git",
-                "reference": "e6f1f98bbd355d209a992bfff45e7edfbd4a0776"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/e6f1f98bbd355d209a992bfff45e7edfbd4a0776",
-                "reference": "e6f1f98bbd355d209a992bfff45e7edfbd4a0776",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Process\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Process Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-30 10:41:14"
-        },
-        {
             "name": "symfony/property-access",
             "version": "v3.0.4",
             "source": {
@@ -2905,110 +2222,6 @@
             "time": "2016-03-07 14:04:32"
         },
         {
-            "name": "symfony/stopwatch",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "6015187088421e9499d8f8316bdb396f8b806c06"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/6015187088421e9499d8f8316bdb396f8b806c06",
-                "reference": "6015187088421e9499d8f8316bdb396f8b806c06",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Stopwatch\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Stopwatch Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-04 07:55:57"
-        },
-        {
-            "name": "symfony/templating",
-            "version": "v3.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/templating.git",
-                "reference": "582623fef6efc3f78aa86391e175b4e961909e3d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/templating/zipball/582623fef6efc3f78aa86391e175b4e961909e3d",
-                "reference": "582623fef6efc3f78aa86391e175b4e961909e3d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "psr/log": "~1.0"
-            },
-            "suggest": {
-                "psr/log": "For using debug logging in loaders"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Templating\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Templating Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-03-27 10:24:39"
-        },
-        {
             "name": "symfony/translation",
             "version": "v2.8.4",
             "source": {
@@ -3226,46 +2439,6 @@
             "time": "2016-03-27 12:57:53"
         },
         {
-            "name": "thcolin/silex-gearman-service",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thcolin/silex-gearman-service.git",
-                "reference": "a230aec8ea9395c87c6bdce4882e50ced254c218"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thcolin/silex-gearman-service/zipball/a230aec8ea9395c87c6bdce4882e50ced254c218",
-                "reference": "a230aec8ea9395c87c6bdce4882e50ced254c218",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.1",
-                "knplabs/console-service-provider": "~1.1",
-                "mhlavac/gearman": "0.1.*",
-                "symfony/console": "~2.0",
-                "symfony/framework-bundle": "~3.0",
-                "symfony/process": "~3.0"
-            },
-            "require-dev": {
-                "silex/silex": "~1.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "thcolin\\Gearman\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "thcolin",
-                    "email": "th.colin3@gmail.com"
-                }
-            ],
-            "time": "2016-03-12 18:04:48"
-        },
-        {
             "name": "twig/twig",
             "version": "v1.24.0",
             "source": {
@@ -3330,9 +2503,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "thcolin/silex-gearman-service": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
