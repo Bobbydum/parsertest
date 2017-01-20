@@ -5,6 +5,7 @@
 # Зависимости
 + Php > 7.0
 + установленый <https://getcomposer.org>
++ установленный rabbitMq <https://www.rabbitmq.com/>
 
 # Конфигурация
 ./config/config.php
