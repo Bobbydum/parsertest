@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  my_app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: my_app
+    restart: unless-stopped
+    user: ${CURRENT_UID:-1000:1000}
+    environment:
+      COMPOSER_MEMORY_LIMIT: -1
+    working_dir: /var/www
+    volumes:
+      - ../parsertest/:/var/www/parsertest
