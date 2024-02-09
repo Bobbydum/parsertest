@@ -15,6 +15,10 @@
     "monolog/monolog": "^1.18",
     "symfony/console": "^3.0",
     "silex/silex": "^2.2"
+  }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
   },
   "autoload": {
     "psr-0": { "App": "src" }
