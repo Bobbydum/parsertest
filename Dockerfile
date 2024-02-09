@@ -1,4 +1,5 @@
 FROM public.ecr.aws/docker/library/php:8.3-fpm-alpine3.17
+# we should use alpine 3.17, ruby 3.2 breaks theme buid
 
 RUN apk add --no-cache --update $PHPIZE_DEPS bash git unzip msmtp jpegoptim \
     imagemagick-dev curl-dev libxml2-dev aspell-dev libxslt-dev libzip-dev zlib-dev gmp-dev libmemcached-dev icu-dev \
@@ -23,5 +24,3 @@ RUN apk add --no-cache --update $PHPIZE_DEPS bash git unzip msmtp jpegoptim \
     && git clone https://github.com/Imagick/imagick && cd imagick && \
       phpize && ./configure && make && make install && \
       cd ../ && rm -rf imagick && docker-php-ext-enable imagick \
-    && git clone "https://github.com/tideways/php-xhprof-extension.git" && cd php-xhprof-extension && \
-      phpize && ./configure && make && make install && docker-php-ext-enable tideways_xhprof
